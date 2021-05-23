@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Home from './components/Index'
+import NavBar from './components/shared/NavBar';
 
 
 const errorMessage = () => {
@@ -16,6 +17,7 @@ const errorMessage = () => {
 function App() {
   return (
     <BrowserRouter>
+      <NavBar />
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='*' component={errorMessage} />
