@@ -1,17 +1,20 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 
-import PagePink from './pages/PagePink';
+import PagePink from './pages/GlassTheme';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100vw',
         height: '100vh',
         backgroundColor: '#fcfcfc',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        display: 'grid',
+        placeItems: 'center',
         paddingTop: '2rem',
+
+        '@media(max-width: 600px)': {
+            paddingTop: '1rem',
+        },
     },
 
 }));
