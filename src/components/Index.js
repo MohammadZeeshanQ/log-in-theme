@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 
-import PagePink from './pages/GlassTheme';
+import PagePink from './pages/GlassTheme.js';
 
 const useStyles = makeStyles((theme) => ({
     root: {

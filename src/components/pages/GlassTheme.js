@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../../assets/css/glass.css';
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid, Button, Typography, TextField, InputLabel, Checkbox } from '@material-ui/core'
@@ -255,6 +255,179 @@ const useStyles = makeStyles((theme) => ({
 export default function GlassTheme() {
     const classes = useStyles();
     const [signIn, setSignIn] = useState(false);
+
+
+    const changeRenderView = () => {
+        setSignIn(!signIn);
+        console.log(signIn);
+    }
+
+    useEffect(() => {
+        console.log(`Render View SignIn: ${signIn}`);
+    }, [signIn])
+
+    const signinRenderView = () => {
+        return (
+            <div className={classes.textFieldContainer}>
+                <div className={classes.textFieldWrapper}>
+                    <Typography className={classes.textFieldInputHeader} variant='h3'>
+                        Sign up
+                    </Typography>
+                    <form>
+                        <div>
+                            <InputLabel className={classes.textFieldInputLabel} htmlFor='emailID'>Email Address</InputLabel>
+                            <TextField required type='email' id='emailID' className={classes.textFieldInput} variant='outlined' placeholder='Enter your Email' autoComplete='false' />
+                        </div>
+                        <div className={classes.textFieldMargin}>
+                            <InputLabel className={classes.textFieldInputLabel} htmlFor='passID'>Set Password</InputLabel>
+                            <TextField required type='password' id='passID' className={classes.textFieldInput} variant='outlined' placeholder='Enter Password' autoComplete='false' />
+                        </div>
+                        <div className={classes.textFieldTickBoxContainer}>
+                            <Checkbox
+                                className={classes.textFieldTickBox}
+                                color='default'
+                                id='checkboxID'
+                                size='medium'
+                            />
+
+                            <InputLabel className={classes.textFieldTickBoxLabel} htmlFor='checkboxID'>Remember Me</InputLabel>
+                        </div>
+
+                        <div className={classes.textFieldButtonContainer}>
+                            <Button className={classes.textFieldButton}
+                                endIcon={<ArrowRightAltIcon style={{ fontSize: '1.3rem' }} />} >
+                                Sign up
+                            </Button>
+                            <Button className={classes.textFieldGoogleButtonMobile} variant='standard' startIcon={
+                                <img className={classes.textFieldGoogleIconMobile} src={GoogleIcon} />}>
+                                Continue with Google
+                            </Button>
+                        </div>
+
+                        <div className={classes.mobileAccountContianer}>
+                            <Typography variant='body1' className={classes.mobileAccountHeader}>
+                                Already have an account?
+                            </Typography>
+                            <Button variant='standard' className={classes.mobileAccountButton} onClick={changeRenderView}>
+                                Login
+                            </Button>
+                        </div>
+
+                        <div className={classes.textFieldLineContainer}>
+                            <hr className={classes.textFieldLine} />
+                            <Typography className={classes.textFieldLineLabel} variant='body2'>or</Typography>
+                            <hr className={classes.textFieldLine} />
+                        </div>
+
+                        <div className={classes.textFieldGoogleButtonContainer}>
+                            <Button className={classes.textFieldGoogleButton} variant='standard' startIcon={
+                                <img className={classes.textFieldGoogleIcon} src={GoogleIcon} />}>
+                                Continue with Google
+                            </Button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        )
+    }
+
+
+
+    const loginRenderView = () => {
+        return (
+            <div className={classes.textFieldContainer}>
+                <div className={classes.textFieldWrapper}>
+                    <Typography className={classes.textFieldInputHeader} variant='h3'>
+                        Login
+                    </Typography>
+                    <form>
+                        <div>
+                            <InputLabel className={classes.textFieldInputLabel} htmlFor='emailID'>Email Address</InputLabel>
+                            <TextField required type='email' id='emailID' className={classes.textFieldInput} variant='outlined' placeholder='Enter your Email' autoComplete='false' />
+                        </div>
+                        <div className={classes.textFieldMargin}>
+                            <InputLabel className={classes.textFieldInputLabel} htmlFor='passID'>Set Password</InputLabel>
+                            <TextField required type='password' id='passID' className={classes.textFieldInput} variant='outlined' placeholder='Enter Password' autoComplete='false' />
+                        </div>
+                        <div className={classes.textFieldTickBoxContainer}>
+                            <Checkbox
+                                className={classes.textFieldTickBox}
+                                color='default'
+                                id='checkboxID'
+                                size='medium'
+                            />
+
+                            <InputLabel className={classes.textFieldTickBoxLabel} htmlFor='checkboxID'>Remember Me</InputLabel>
+                        </div>
+
+                        <div className={classes.textFieldButtonContainer}>
+                            <Button className={classes.textFieldButton}
+                                endIcon={<ArrowRightAltIcon style={{ fontSize: '1.3rem' }} />} >
+                                Login
+                            </Button>
+                            <Button className={classes.textFieldGoogleButtonMobile} variant='standard' startIcon={
+                                <img className={classes.textFieldGoogleIconMobile} src={GoogleIcon} />}>
+                                Continue with Google
+                            </Button>
+                        </div>
+
+                        <div className={classes.mobileAccountContianer}>
+                            <Typography variant='body1' className={classes.mobileAccountHeader}>
+                                Are You A New Member?
+                        </Typography>
+                            <Button variant='standard' className={classes.mobileAccountButton} onClick={changeRenderView}>
+                                Sign up
+                        </Button>
+                        </div>
+
+                        <div className={classes.textFieldLineContainer}>
+                            <hr className={classes.textFieldLine} />
+                            <Typography className={classes.textFieldLineLabel} variant='body2'>or</Typography>
+                            <hr className={classes.textFieldLine} />
+                        </div>
+
+                        <div className={classes.textFieldGoogleButtonContainer}>
+                            <Button className={classes.textFieldGoogleButton} variant='standard' startIcon={
+                                <img className={classes.textFieldGoogleIcon} src={GoogleIcon} />}>
+                                Continue with Google
+                            </Button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        )
+    }
+
+
+    const imageSideSignInRenderView = () => {
+        return (
+            <div className={classes.imageAccountContianer}>
+                <Typography variant='body1' className={classes.imageAccountHeader}>
+                    Are you a New Member?
+            </Typography>
+                <Button variant='standard' className={classes.imageAccountButton} onClick={changeRenderView}>
+                    sign in
+            </Button>
+            </div>
+        )
+    }
+
+    const imageSideLogInRenderView = () => {
+        return (
+            <div className={classes.imageAccountContianer}>
+                <Typography variant='body1' className={classes.imageAccountHeader}>
+                    Already have an account?
+            </Typography>
+                <Button variant='standard' className={classes.imageAccountButton} onClick={changeRenderView}>
+                    Login
+            </Button>
+            </div>
+        )
+    }
+
+
     return (
         <div className={classes.root}>
             <div className={classes.wrapper}>
@@ -291,14 +464,9 @@ export default function GlassTheme() {
                                             we are the best content producer you'll ever work with.
                                         </Typography>
                                     </div>
-                                    <div className={classes.imageAccountContianer}>
-                                        <Typography variant='body1' className={classes.imageAccountHeader}>
-                                            Already have an account?
-                                        </Typography>
-                                        <Button variant='standard' className={classes.imageAccountButton}>
-                                            sign in
-                                        </Button>
-                                    </div>
+                                    {
+                                        signIn ? imageSideSignInRenderView() : imageSideLogInRenderView()
+                                    }
                                 </div>
                             </div>
                             <img className={classes.imageBackground} src={GlassBackground} alt='Pattern Background' />
@@ -310,67 +478,9 @@ export default function GlassTheme() {
                         sm={6}
                         md={6}
                     >
-                        <div className={classes.textFieldContainer}>
-                            <div className={classes.textFieldWrapper}>
-                                <Typography className={classes.textFieldInputHeader} variant='h3'>
-                                    Sign up
-                                </Typography>
-                                <form>
-                                    <div>
-                                        <InputLabel className={classes.textFieldInputLabel} htmlFor='emailID'>Email Address</InputLabel>
-                                        <TextField required type='email' id='emailID' className={classes.textFieldInput} variant='outlined' placeholder='Enter your Email' autoComplete='false' />
-                                    </div>
-                                    <div className={classes.textFieldMargin}>
-                                        <InputLabel className={classes.textFieldInputLabel} htmlFor='passID'>Set Password</InputLabel>
-                                        <TextField required type='password' id='passID' className={classes.textFieldInput} variant='outlined' placeholder='Enter Password' autoComplete='false' />
-                                    </div>
-                                    <div className={classes.textFieldTickBoxContainer}>
-                                        <Checkbox
-                                            className={classes.textFieldTickBox}
-                                            color='default'
-                                            id='checkboxID'
-                                            size='medium'
-                                        />
-
-                                        <InputLabel className={classes.textFieldTickBoxLabel} htmlFor='checkboxID'>Remember Me</InputLabel>
-                                    </div>
-
-                                    <div className={classes.textFieldButtonContainer}>
-                                        <Button className={classes.textFieldButton}
-                                            endIcon={<ArrowRightAltIcon style={{ fontSize: '1.3rem' }} />} >
-                                            Sign up
-                                        </Button>
-                                        <Button className={classes.textFieldGoogleButtonMobile} variant='standard' startIcon={
-                                            <img className={classes.textFieldGoogleIconMobile} src={GoogleIcon} />}>
-                                            Continue with Google
-                                        </Button>
-                                    </div>
-
-                                    <div className={classes.mobileAccountContianer}>
-                                        <Typography variant='body1' className={classes.mobileAccountHeader}>
-                                            Already have an account?
-                                        </Typography>
-                                        <Button variant='standard' className={classes.mobileAccountButton}>
-                                            Login
-                                        </Button>
-                                    </div>
-
-                                    <div className={classes.textFieldLineContainer}>
-                                        <hr className={classes.textFieldLine} />
-                                        <Typography className={classes.textFieldLineLabel} variant='body2'>or</Typography>
-                                        <hr className={classes.textFieldLine} />
-                                    </div>
-
-                                    <div className={classes.textFieldGoogleButtonContainer}>
-                                        <Button className={classes.textFieldGoogleButton} variant='standard' startIcon={
-                                            <img className={classes.textFieldGoogleIcon} src={GoogleIcon} />}>
-                                            Continue with Google
-                                        </Button>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
+                        {
+                            signIn ? loginRenderView() : signinRenderView()
+                        }
                     </Grid>
                 </Grid>
             </div>
