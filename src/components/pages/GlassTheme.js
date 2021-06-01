@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '0 2.5rem 2.5rem 0',
     },
     imageGlassHeader: {
-        fontFamily: 'popLight',
+        fontFamily: 'popRegular',
     },
     imageTextContainer: {
 
@@ -262,9 +262,6 @@ export default function GlassTheme() {
         console.log(signIn);
     }
 
-    useEffect(() => {
-        console.log(`Render View SignIn: ${signIn}`);
-    }, [signIn])
 
     const signinRenderView = () => {
         return (
@@ -413,6 +410,8 @@ export default function GlassTheme() {
             </div>
         )
     }
+
+
 
     const imageSideLogInRenderView = () => {
         return (
